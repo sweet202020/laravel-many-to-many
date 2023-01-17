@@ -29,7 +29,8 @@ class StoreProjectRequest extends FormRequest
             'difficulty' => 'required|max:30',
             'language' => 'required|max:50',
             'cover_image' => 'nullable|image|max:300',
-            'type_id' => 'nullable|exists:types,id'
+            'type_id' => 'nullable|exists:types,id',
+            'technologies'=>'nullable|exists:technologies,id'
         ];
     }
     public function messages()

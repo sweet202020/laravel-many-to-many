@@ -56,6 +56,12 @@ class ProjectController extends Controller
         $val_data['slug'] = $project_slug;
         $project = Project::create($val_data);
 
+        if($request->has('technologies')){
+            $project->technologies()->sync($val_data['technologies']);
+            } else {
+            $project->technologies()->sync([]);
+            }
+
 
         return to_route('admin.projects.index')->with('message', "$project->title added succesfully");
     }
